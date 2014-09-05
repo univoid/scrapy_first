@@ -58,5 +58,5 @@ class test(CrawlSpider):
 
         item['belong'] = belong
 
-        self.log(item['url']+"    "+item['name'])
+        # self.log(item['url']+"    "+item['name'])
         return item
