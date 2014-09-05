@@ -12,7 +12,7 @@ BOT_NAME = 'Scrapy_first'
 
 SPIDER_MODULES = ['Scrapy_first.spiders']
 NEWSPIDER_MODULE = 'Scrapy_first.spiders'
-ITEM_PIPELINES = ['test.pipelines.TestPipeline']
+ITEM_PIPELINES = ['Scrapy_first.pipelines.TestPipeline']
 USER_AGENT = 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.66 Safari/537.36'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent

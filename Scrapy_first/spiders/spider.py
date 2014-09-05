@@ -17,8 +17,6 @@ class test(CrawlSpider):
         item['url'] = response.url
         item['name'] = ""
         item['price'] = ""
-        item['memprice'] = ""
-        item['press'] = ""
         item['publication'] = ""
         item['author'] = ""
         item['desc'] = ""
@@ -32,22 +30,9 @@ class test(CrawlSpider):
         if len(strlist) > 0:
             item['price'] = strlist[0]
 
-        strlist = x.select("//div[@class='privilege-price']/span[contains(@style, 'color:')]/text()").extract()
-        if len(strlist) > 0:
-            item['memprice'] = strlist[0]
-
-        strlist = x.select("//ul[@class='doc-info-org']/li/text()").extract()
-
-        count = len(strlist)
-        if count > 0:
-            item['author'] = strlist[0]
-
-        if count > 1:
-            item['publication'] = strlist[1]
-
-        if count > 2:
-            item['press'] = strlist[2]
-
+        strlist = x.select("//ul[@class='doc-info-org']")
+        item['author'] = strlist.select("li[1]/a").text()
+        item['publication'] = strlist.select("li[2]/a").text()
 
         strlist = x.select("//div[@class='des-content']/p/text()").extract()
         if len(strlist) > 0:

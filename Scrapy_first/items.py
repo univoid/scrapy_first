@@ -14,8 +14,6 @@ class TestItem(Item):
     url = Field()
     name = Field()
     price = Field()
-    memprice = Field()
-    press = Field()
     publication = Field()
     author = Field()
     desc = Field()
