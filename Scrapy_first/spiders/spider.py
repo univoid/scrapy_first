@@ -32,8 +32,8 @@ class test(CrawlSpider):
 
         strlist = x.select("//ul[@class='doc-info-org']")
         if len(strlist) > 0:
-            item['author'] = strlist.select("li[1]/a").text()
-            item['publication'] = strlist.select("li[2]/a").text()
+            item['author'] = strlist.select("li[1]/a/text()").extract()
+            item['publication'] = strlist.select("li[2]/a/text()").extract()
 
         strlist = x.select("//div[@class='des-content']/p/text()").extract()
         if len(strlist) > 0:
