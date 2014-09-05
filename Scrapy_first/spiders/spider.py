@@ -30,10 +30,13 @@ class test(CrawlSpider):
         if len(strlist) > 0:
             item['price'] = strlist[0]
 
-        strlist = x.select("//ul[@class='doc-info-org']")
+        strlist = x.select("//ul[@class='doc-info-org']/li[1]/a/text()").extract()
         if len(strlist) > 0:
-            item['author'] = strlist.select("li[1]/a/text()").extract()
-            item['publication'] = strlist.select("li[2]/a/text()").extract()
+            item['author'] = strlist[0]
+
+        strlist = x.select("//ul[@class='doc-info-org']/li[2]/a/text()").extract()
+        if len(strlist) > 0:
+            item['publication'] = strlist[0]
 
         strlist = x.select("//div[@class='des-content']/p/text()").extract()
         if len(strlist) > 0:
